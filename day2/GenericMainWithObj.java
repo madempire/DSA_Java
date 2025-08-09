@@ -3,9 +3,9 @@ package day2;
 public class GenericMainWithObj {
     public static void main(String[] args) {
         Generic<Student> studentGeneric = new Generic<>(new Student("madhu",450));
-        System.out.println(studentGeneric.toString());
+        System.out.println(studentGeneric.read().toString());
         Generic<String> stringGeneric = new Generic<>("hello");
-        System.out.println(stringGeneric);
+        System.out.println(stringGeneric.obj);
     }
 }
 class Generic<T>{
@@ -15,14 +15,10 @@ class Generic<T>{
     }
 
     T read(){
-        return this.obj;
+        return (T) this.obj;
     }
 
-    @Override
-    public String toString() {
-        return "" + obj +
-                "";
-    }
+
 }
 
 class Student{
